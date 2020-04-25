@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import DeckList from './components/DeckList'
 import NewDeck from './components/NewDeck'
 import Card from './components/Card'
-import NewCard from './components/NewCard'
+import AddCard from './components/AddCard'
 import Deck from './components/Deck'
 import Quiz from './components/Quiz'
 
@@ -38,7 +38,7 @@ const App = () => {
           />
           <Stack.Screen
             name='New Card'
-            component={NewCard}
+            component={AddCard}
           />
           <Stack.Screen
             name='Card'

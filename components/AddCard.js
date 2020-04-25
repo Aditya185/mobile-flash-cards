@@ -2,12 +2,10 @@ import React, { Component } from 'react'
 import { View, TextInput, StyleSheet, Picker, Button,KeyboardAvoidingView,Text,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import styles from '../utils/styles';
-
-import { white } from '../utils/color'
 import { addCardToDeckAction } from '../actions'
 import { addCardToDeck } from '../utils/api'
 
-class NewCard extends Component {
+class AddCard extends Component {
   state = {
     question: '',
     answer: ''
@@ -75,5 +73,5 @@ class NewCard extends Component {
   }
 }
 
-export default connect()(NewCard)
+export default connect()(AddCard)
 
