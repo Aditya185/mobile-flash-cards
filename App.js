@@ -1,19 +1,58 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler'
+import React from 'react'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
-export default function App() {
+import DeckList from './components/DeckList'
+import NewDeck from './components/NewDeck'
+import Card from './components/Card'
+import NewCard from './components/NewCard'
+import Deck from './components/Deck'
+import Quiz from './components/Quiz'
+
+import reducer from './reducers/index'
+import middleware from './middleware/index'
+
+const Stack = createStackNavigator()
+const store = createStore(reducer, middleware)
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Decks">
+          <Stack.Screen
+            name='Decks'
+            component={DeckList}
+            options={{ title: 'Mobile Flash Cards' }}
+          />
+          <Stack.Screen
+            name='New Deck'
+            component={NewDeck}
+          />
+          <Stack.Screen
+            name='Deck'
+            component={Deck}
+          />
+          <Stack.Screen
+            name='New Card'
+            component={NewCard}
+          />
+          <Stack.Screen
+            name='Card'
+            component={Card}
+          />
+          <Stack.Screen
+            name='Quiz'
+            component={Quiz}
+          />
+           
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
