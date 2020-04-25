@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { View, TextInput, StyleSheet,KeyboardAvoidingView,Text,TouchableOpacity } from 'react-native'
-import { white } from '../utils/color'
+import { View, TextInput,KeyboardAvoidingView,Text,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import styles from '../utils/styles';
 
@@ -14,7 +13,7 @@ export class NewDeck extends Component {
     toDeck: false,
   }
 
-  onPress = () => {
+  handleSubmit = () => {
     const { dispatch, navigation } = this.props
     const { deckTitle } = this.state
 
@@ -58,7 +57,7 @@ export class NewDeck extends Component {
         />
         <TouchableOpacity
              style={[styles.button, styles.buttonBlack]} 
-              onPress={this.onPress}
+              onPress={this.handleSubmit}
           >
           <Text style={[styles.buttonText, styles.buttonBlackText]}>Submit</Text>
         </TouchableOpacity>

@@ -117,6 +117,87 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 22,
     color: 'gray'
+  },
+  card: {
+    flex: 1,
+    justifyContent: 'center',
+    minHeight: 250,
+    minWidth: '80%',
+    margin: 10,
+    marginLeft: 40,
+    marginRight: 40,
+    padding: 20,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  contentCard: {
+    fontSize: 22,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  textCard: {
+    fontSize: 18,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  deckHeader: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10,
+    height: 120,
+  },
+  deckHeader: {
+    padding: 40,
+  },
+  textDeck: {
+    fontSize: 20,
+    textAlign: 'center',
+  },
+  titleDeck: {
+    fontSize: 30,
+    textAlign: 'center',
+    padding: 10,
+  },
+  subtitle: {
+    fontSize: 22,
+    textAlign: 'center',
+    padding: 10,
+    marginTop: 20,
+  },
+  noCardsMessage: {
+    textAlign: 'center',
+    fontSize: 20,
+    color: 'gray'
+  },
+  noCardsContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    height: 200,
+  },
+  quizContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  btnContainer: {
+    color: 'red'
+  },
+  finalMessage: {
+    fontSize: 22,
+    textAlign: 'center',
+    margin: 20,
+  },
+  messageContainer: {
+    height: 200,
   }
 })
   

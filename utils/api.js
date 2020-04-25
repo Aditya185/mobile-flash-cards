@@ -7,17 +7,19 @@ const dummyData = () => ({
     deck_id: 'wdkp9xk3edalu40frxoigl',
     title: 'React',
     questions: [
+
+        
       {
-        question: 'React Props are like function arguments in JavaScript and attributes in HTML.',
-        answer: 'correct'
+        question: 'What is React?',
+        answer: 'A library for managing user interfaces'
       },
       {
         question: 'When the state object changes, the component re-renders.',
         answer: 'correct'
       },
       {
-        question: 'The only way to initialize the state object is in the constructor.',
-        answer: 'incorrect'
+        question: 'Where do you make Ajax requests in React?',
+        answer: 'The componentDidMount lifecycle event'
       },
       {
         question: 'JSX is typesafe.',
@@ -30,8 +32,8 @@ const dummyData = () => ({
     title: 'JavaScript',
     questions: [
       {
-        question: 'JavaScript can change HTML attribute values.',
-        answer: 'correct'
+        question: 'What is a closure?',
+        answer: 'The combination of a function and the lexical environment within which that function was declared.'
       },
       {
         question: 'Multi-line comments in JavaScript start with //.',

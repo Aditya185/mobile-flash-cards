@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Button, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text,ScrollView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import { FontAwesome } from '@expo/vector-icons'
 import styles from '../utils/styles';
-import { gray } from '../utils/color'
-import Card from './Card'
-import Loading from './Loading'
 import { removeDeck } from '../utils/api'
 import { deleteDeck } from '../actions/index'
 
 
 class Deck extends Component {
-  onPress = () => {
+
+  handleStartQuiz = () => {
     const deck_id = this.props.route.params.deck_id
     const deck = this.props.decks[deck_id]
 
@@ -46,11 +43,11 @@ class Deck extends Component {
 
   return (
     <ScrollView> 
-      <View style={stylo.deckHeader}>
-        <Text style={stylo.title}>
+      <View style={styles.deckHeader}>
+        <Text style={styles.titleDeck}>
           {deck.title}
         </Text>
-        <Text style={stylo.text}>{deck.questions.length} cards</Text>
+        <Text style={styles.textDeck}>{deck.questions.length} cards</Text>
       </View>
 
        <TouchableOpacity
@@ -61,7 +58,7 @@ class Deck extends Component {
             <Text style={[styles.buttonText,{fontWeight:'bold'}]}>Add Card</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.button, styles.buttonBlack,{marginTop:10}]}     onPress={this.onPress}
+            style={[styles.button, styles.buttonBlack,{marginTop:10}]}     onPress={this.handleStartQuiz}
             >
             <Text style={[styles.buttonText, styles.buttonBlackText]}>Start Quiz</Text>
           </TouchableOpacity>
@@ -80,46 +77,4 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Deck)
-
-const stylo = StyleSheet.create({
-  trash: {
-    alignSelf: 'flex-end',
-    margin: 10,
-  },
-  deckHeader: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 10,
-    height: 120,
-  },
-  deckHeader: {
-    padding: 40,
-  },
-  text: {
-    fontSize: 20,
-    textAlign: 'center',
-  },
-  title: {
-    fontSize: 30,
-    textAlign: 'center',
-    padding: 10,
-  },
-  subtitle: {
-    fontSize: 22,
-    textAlign: 'center',
-    padding: 10,
-    marginTop: 20,
-  },
-  noCardsMessage: {
-    textAlign: 'center',
-    fontSize: 20,
-    color: gray
-  },
-  noCardsContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    height: 200,
-  }
-})
 

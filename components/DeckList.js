@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-
-import { gray } from '../utils/color'
-import Loading from './Loading'
 import DeckCard from './DeckCard'
 import { receiveDecks } from '../actions'
 import { getDecks } from '../utils/api'
@@ -24,7 +21,7 @@ export class DeckList extends Component {
     const { decksIds, decks, navigation, loading } = this.props
 
     if (loading === true) {
-      return <Loading />
+      return <Text>Loading...</Text>
     }
  
     return (
@@ -91,7 +88,7 @@ const styles = StyleSheet.create({
   noDeckMessage: {
     textAlign: 'center',
     fontSize: 22,
-    color: gray
+    color: 'gray'
   },
   noDeckContainer: {
     flex: 1,

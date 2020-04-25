@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TextInput, StyleSheet, Picker, Button,KeyboardAvoidingView,Text,TouchableOpacity } from 'react-native'
+import { View, TextInput,KeyboardAvoidingView,Text,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import styles from '../utils/styles';
 import { addCardToDeckAction } from '../actions'
@@ -11,13 +11,13 @@ class AddCard extends Component {
     answer: ''
   }
 
-  onPress = () => {
+  handleSubmit = () => {
     const { dispatch, navigation } = this.props
     const { question, answer } = this.state
     const deck_id = this.props.route.params.deck_id
 
     if (question === '' || answer === '') {
-      return alert('Please, add question and answer')
+      return alert('Please add question and answer both')
     }
 
     const card = {
@@ -63,7 +63,7 @@ class AddCard extends Component {
          
         />
         <TouchableOpacity
-          style={[styles.button, styles.buttonBlack]}   onPress={this.onPress}
+          style={[styles.button, styles.buttonBlack]}   onPress={this.handleSubmit}
           >
           <Text style={[styles.buttonText, styles.buttonBlackText]}>Submit</Text>
         </TouchableOpacity>

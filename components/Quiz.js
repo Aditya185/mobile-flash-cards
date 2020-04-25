@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Button, StyleSheet,TouchableOpacity } from 'react-native'
+import { Text, View,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import styles from '../utils/styles';
 
@@ -59,7 +59,7 @@ export class Quiz extends Component {
     const { index, correctAnswers } = this.state
 
     return (
-      <View style={stylo.quizContainer}>
+      <View style={styles.quizContainer}>
         {
           deck.questions[index]
             ? (
@@ -85,17 +85,17 @@ export class Quiz extends Component {
                     </TouchableOpacity>
               </View>
             ) : (
-              <View style={stylo.messageContainer}>
-                <Text style={stylo.finalMessage}>You finished the quiz</Text>
-                <Text style={stylo.finalMessage} >You got {(correctAnswers / deck.questions.length * 100).toFixed(2)}% of correct answers</Text>
+              <View style={styles.messageContainer}>
+                <Text style={styles.finalMessage}>You finished the quiz</Text>
+                <Text style={styles.finalMessage} >You got {(correctAnswers / deck.questions.length * 100).toFixed(2)}% of correct answers</Text>
 
                 <TouchableOpacity
-                      style={[styles.button]}   onPress={() => this.handleFinishQuiz}
+                      style={[styles.button]}   onPress={this.handleFinishQuiz}
                       >
                       <Text style={[styles.buttonText,{fontWeight:'bold'}]}>Return to Deck</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                      style={[styles.button, styles.buttonBlack,{marginTop:10}]}     onPress={this.handleRestartQuiz}
+                      style={[styles.button, styles.buttonBlack,{marginTop:10}]} onPress={this.handleRestartQuiz}
                       >
                       <Text style={[styles.buttonText, styles.buttonBlackText]}>Restart Quiz</Text>
                     </TouchableOpacity>
@@ -115,21 +115,3 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps)(Quiz)
 
-const stylo = StyleSheet.create({
-  quizContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  btnContainer: {
-    color: 'red'
-  },
-  finalMessage: {
-    fontSize: 22,
-    textAlign: 'center',
-    margin: 20,
-  },
-  messageContainer: {
-    height: 200,
-  }
-})

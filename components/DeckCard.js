@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 
-import { gainsboro } from '../utils/color'
 
 class DeckCard extends Component {
   render() {
